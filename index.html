@@ -83,22 +83,34 @@
     }
 
     function loadQuestion() {
-      const current = questions[currentQuestion];
-      questionEl.textContent = current.question;
-      optionsEl.innerHTML = "";
-      const shuffledOptions = shuffleArray([...current.options]);
-      shuffledOptions.forEach((option, index) => {
-        const button = document.createElement("button");
-        button.textContent = option;
-        button.addEventListener("click", () => checkAnswer(current.options.indexOf(option)));
-        optionsEl.appendChild(button);
-      });
-	  const sourceTag = document.createElement("p");
-      sourceTag.style.fontSize = "0.9em";
-      sourceTag.style.color = "#888";
-      sourceTag.textContent = `Source: ${current.source}`;
-      optionsEl.parentNode.insertBefore(sourceTag, optionsEl);
-    }
+  const current = questions[currentQuestion];
+  questionEl.textContent = current.question;
+  optionsEl.innerHTML = "";
+
+  // Create and insert a source tag only once per question
+  const sourceTag = document.createElement("p");
+  sourceTag.style.fontSize = "0.9em";
+  sourceTag.style.color = "#888";
+  sourceTag.innerHTML = `Source: <a href="${current.source.url}" target="_blank">${current.source.label}</a>`;
+  
+  // Remove any existing source tag before appending (if needed)
+  const existingSource = document.getElementById("source-tag");
+  if (existingSource) {
+    existingSource.remove();
+  }
+  sourceTag.id = "source-tag";
+  optionsEl.parentNode.insertBefore(sourceTag, optionsEl);
+
+  // Shuffle and display options
+  const shuffledOptions = shuffleArray([...current.options]);
+  shuffledOptions.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.addEventListener("click", () => checkAnswer(current.options.indexOf(option)));
+    optionsEl.appendChild(button);
+  });
+}
+
 
     function checkAnswer(selectedIndex) {
       const correctIndex = questions[currentQuestion].answer;

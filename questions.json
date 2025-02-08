@@ -1,46 +1,114 @@
 [
-  {
-    "question": "What is the primary purpose of Flex Code Definitions in Oracle Health Insurance?",
-    "options": [
-      "To store domain-specific values that drive configurable behaviors",
-      "To manage user authentication",
-      "To generate dynamic reports",
-      "To secure network communications"
-    ],
-    "answer": 0,
-    "source": "Code Definitions"
-  },
-  {
-    "question": "Which key element is typically included in a Flex Code Definition?",
-    "options": [
-      "Field Usages for determining where the code applies",
-      "Predefined user roles for login",
-      "Automated backup schedules",
-      "Real-time data encryption settings"
-    ],
-    "answer": 0,
-    "source": "Code Definitions"
-  },
-  {
-    "question": "What is the main function of Field Definitions in the extensibility framework?",
-    "options": [
-      "To define the properties, constraints, and validation rules for configurable fields",
-      "To create and manage user sessions",
-      "To facilitate data import/export processes",
-      "To monitor system performance metrics"
-    ],
-    "answer": 0,
-    "source": "Field Definitions"
-  },
-  {
-    "question": "How do Field Definitions contribute to system flexibility in Oracle Health Insurance?",
-    "options": [
-      "They allow administrators to customize field properties to match specific business requirements",
-      "They enable real-time security alerts",
-      "They automate claim adjudication processes",
-      "They control the application’s network traffic"
-    ],
-    "answer": 0,
-    "source": "Field Definitions"
-  }
+    {
+        "question": "What is the primary purpose of Flex Code Definitions in Oracle Health Insurance?",
+        "options": [
+            "To store domain-specific values that drive configurable behaviors",
+            "To manage user authentication",
+            "To generate dynamic reports",
+            "To secure network communications"
+        ],
+        "answer": 0,
+        "source": {
+            "label": "Code Definitions",
+            "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+        }
+    },
+    {
+        "question": "Which key element is typically included in a Flex Code Definition?",
+        "options": [
+            "Field Usages for determining where the code applies",
+            "Predefined user roles for login",
+            "Automated backup schedules",
+            "Real-time data encryption settings"
+        ],
+        "answer": 0,
+        "source": {
+            "label": "Code Definitions",
+            "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+        }
+    },
+    {
+        "question": "What is the main function of Field Definitions in the extensibility framework?",
+        "options": [
+            "To define the properties, constraints, and validation rules for configurable fields",
+            "To create and manage user sessions",
+            "To facilitate data import/export processes",
+            "To monitor system performance metrics"
+        ],
+        "answer": 0,
+        "source": {
+            "label": "Field Definitions",
+            "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+        }
+    },
+    {
+        "question": "How do Field Definitions contribute to system flexibility in Oracle Health Insurance?",
+        "options": [
+            "They allow administrators to customize field properties to match specific business requirements",
+            "They enable real-time security alerts",
+            "They automate claim adjudication processes",
+            "They control the application’s network traffic"
+        ],
+        "answer": 0,
+        "source": {
+            "label": "Field Definitions",
+            "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+        }
+    },
+    {
+        "question": "What is the purpose of a dynamic record definition in Oracle Health Insurance?",
+        "options": [
+            "To specify the layout and details of extended records",
+            "To manage user access rights",
+            "To configure network connections",
+            "To generate dynamic reports"
+        ],
+        "answer": 0,
+        "source": {
+            "label": "Record Definitions",
+            "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+        }
+    },
+    {
+        "question": "Which attribute uniquely identifies a dynamic record definition?",
+        "options": [
+            "Code",
+            "Description",
+            "Table",
+            "Key?"
+        ],
+        "answer": 0,
+        "source": {
+            "label": "Record Definitions",
+            "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+        }
+    },
+    {
+        "question": "What is the primary purpose of extending tables in Oracle Health Insurance?",
+        "options": [
+            "To add market, business line, and customer-specific fields to persist information",
+            "To generate error logs",
+            "To secure user credentials",
+            "To create new database instances"
+        ],
+        "answer": 0,
+        "source": {
+            "label": "Extending Tables",
+            "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+        }
+    },
+    {
+        "question": "What does dynamic field usage enable when extending tables?",
+        "options": [
+            "It allows users to add fields that affect the processing of claims, policies, and contracts",
+            "It creates separate backup tables",
+            "It manages system performance metrics",
+            "It encrypts sensitive data"
+        ],
+        "answer": 0,
+        "source": {
+            "label": "Extending Tables",
+            "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+        }
+    }
 ]
