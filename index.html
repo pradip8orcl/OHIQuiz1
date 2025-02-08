@@ -126,19 +126,28 @@
     }
 
     function handleCompletion() {
-      attempts.push(score);
-      if (attempts.length > maxAttempts) attempts.shift(); // Keep only last 3 attempts
+  // Remove the source element if it exists
+  const sourceTag = document.getElementById("source-tag");
+  if (sourceTag) {
+    sourceTag.remove();
+  }
+  
+  attempts.push(score);
+  if (attempts.length > maxAttempts) attempts.shift(); // Keep only last 3 attempts
 
-      localStorage.setItem("quizAttempts", JSON.stringify(attempts));
-      const bestScore = Math.max(...attempts);
+  localStorage.setItem("quizAttempts", JSON.stringify(attempts));
+  const bestScore = Math.max(...attempts);
 
-      questionEl.style.display = "none";
-      optionsEl.style.display = "none";
-      scoreEl.style.display = "block";
-      scoreEl.innerHTML = `You scored ${score} out of ${questions.length}<br>Best score of last ${maxAttempts} attempts: ${bestScore}`;
+  // Hide the question and options elements
+  questionEl.style.display = "none";
+  optionsEl.style.display = "none";
+  // Display the score without the source information
+  scoreEl.style.display = "block";
+  scoreEl.innerHTML = `You scored ${score} out of ${questions.length}<br>Best score of last ${maxAttempts} attempts: ${bestScore}`;
 
-      sendScoreToSupervisor(score, questions.length, bestScore);
-    }
+  sendScoreToSupervisor(score, questions.length, bestScore);
+}
+
 
     function sendScoreToSupervisor(currentScore, totalQuestions, bestScore) {
       const supervisorEmail = "supervisor@example.com";
