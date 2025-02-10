@@ -118,16 +118,15 @@
       return array;
     }
 
-    // Load current question and display it along with selected answer if available
+    // Load current question using the stored shuffled options
     function loadQuestion() {
-      // Clear previous source info and options
       sourceContainer.innerHTML = "";
       optionsEl.innerHTML = "";
       
       const current = filteredQuestions[currentQuestion];
       questionEl.textContent = current.question;
       
-      // Display source as a clickable link
+      // Display the source as a clickable link
       const sourceTag = document.createElement("p");
       sourceTag.style.fontSize = "0.9em";
       sourceTag.style.color = "#888";
@@ -135,36 +134,28 @@
       sourceTag.innerHTML = `Source: <a href="${current.source.url}" target="_blank">${current.source.label}</a>`;
       sourceContainer.appendChild(sourceTag);
 
-      // Display options
-      const shuffledOptions = shuffleArray([...current.options]);
-      shuffledOptions.forEach((option, index) => {
+      // Use the pre-shuffled options stored in the question
+      current.shuffledOptions.forEach((option) => {
         const button = document.createElement("button");
         button.textContent = option;
-        // If user already selected this option for current question, highlight it
         if (selectedAnswers[currentQuestion] === option) {
           button.classList.add("selected");
         }
         button.addEventListener("click", () => {
-          // Remove selection highlight from all buttons
+          // Remove highlight from all option buttons
           Array.from(optionsEl.children).forEach(btn => btn.classList.remove("selected"));
-          // Highlight the selected option
           button.classList.add("selected");
-          // Save the selected answer for this question
           selectedAnswers[currentQuestion] = option;
         });
         optionsEl.appendChild(button);
       });
 
-      // Show/hide navigation buttons based on current question index
+      // Show or hide navigation buttons
       prevBtn.style.display = (currentQuestion > 0) ? "block" : "none";
-      if (currentQuestion === filteredQuestions.length - 1) {
-        nextBtn.textContent = "Submit";
-      } else {
-        nextBtn.textContent = "Next";
-      }
+      nextBtn.textContent = (currentQuestion === filteredQuestions.length - 1) ? "Submit" : "Next";
     }
 
-    // Compute the quiz score and send email to supervisor
+    // Compute quiz score and send email
     function submitQuiz() {
       let score = 0;
       filteredQuestions.forEach((question, index) => {
@@ -178,7 +169,6 @@
       localStorage.setItem("quizAttempts", JSON.stringify(attempts));
       const bestScore = Math.max(...attempts);
       
-      // Hide quiz elements and show the score
       questionEl.style.display = "none";
       optionsEl.style.display = "none";
       document.getElementById("nav-controls").style.display = "none";
@@ -188,7 +178,7 @@
       sendScoreToSupervisor(score, filteredQuestions.length, bestScore);
     }
 
-    // Navigation button event listeners
+    // Navigation event listeners
     prevBtn.addEventListener("click", () => {
       if (currentQuestion > 0) {
         currentQuestion--;
@@ -197,9 +187,7 @@
     });
 
     nextBtn.addEventListener("click", () => {
-      // If on the last question, submit the quiz
       if (currentQuestion === filteredQuestions.length - 1) {
-        // Optionally check if all questions have an answer
         if (selectedAnswers.length < filteredQuestions.length || selectedAnswers[currentQuestion] === undefined) {
           if (!confirm("Some questions are unanswered. Do you want to submit anyway?")) {
             return;
@@ -212,7 +200,7 @@
       }
     });
 
-    // Function to send score email to supervisor
+    // Function to send email with quiz results
     function sendScoreToSupervisor(currentScore, totalQuestions, bestScore) {
       const supervisorEmail = "supervisor@example.com";
       const subject = "Quiz Results";
@@ -220,7 +208,7 @@
       window.open(`mailto:${supervisorEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`);
     }
 
-    // Set up category selection event listeners
+    // Set up category selection event listeners and prepare questions
     const categoryButtons = document.querySelectorAll("#category-selection button");
     categoryButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -237,10 +225,12 @@
         }
         // Select only 5 questions
         filteredQuestions = filteredQuestions.slice(0, 5);
-        // Initialize quiz state
+        // For each selected question, store a one-time shuffled copy of the options
+        filteredQuestions.forEach(q => {
+          q.shuffledOptions = shuffleArray([...q.options]);
+        });
         selectedAnswers = new Array(filteredQuestions.length);
         currentQuestion = 0;
-        // Hide category selection and show quiz section
         categorySelectionEl.style.display = "none";
         quizEl.style.display = "block";
         loadQuestion();
