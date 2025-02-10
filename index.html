@@ -36,9 +36,9 @@
     .options button:hover, .category-options button:hover, .nav-controls button:hover {
       background-color: #e0e0e0;
     }
-    /* Enhanced selected styling */
+    /* Updated selected styling with dark background */
     .selected {
-      background-color: #5c6bc0;
+      background-color: #333333;
       color: #ffffff;
       font-weight: bold;
     }
@@ -57,6 +57,12 @@
     .nav-controls button {
       width: 48%;
     }
+    /* Styling for the category display */
+    #category-info {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -72,8 +78,10 @@
     
     <!-- Quiz Section -->
     <div id="quiz" style="display:none;">
-      <p id="question" class="question"></p>
       <div id="source-container"></div>
+      <!-- Display Category Info -->
+      <div id="category-info"></div>
+      <p id="question" class="question"></p>
       <div class="options" id="options"></div>
       <!-- Navigation Controls -->
       <div class="nav-controls" id="nav-controls">
@@ -97,6 +105,7 @@
     const questionEl = document.getElementById("question");
     const optionsEl = document.getElementById("options");
     const sourceContainer = document.getElementById("source-container");
+    const categoryInfoEl = document.getElementById("category-info");
     const scoreEl = document.getElementById("score");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
@@ -122,22 +131,26 @@
       return array;
     }
 
-    // Load current question using the stored shuffled options
+    // Load the current question and display it along with category info
     function loadQuestion() {
+      // Clear previous source and options info
       sourceContainer.innerHTML = "";
       optionsEl.innerHTML = "";
       
       const current = filteredQuestions[currentQuestion];
       questionEl.textContent = current.question;
       
-      // Display the source as a clickable link
+      // Display source as a clickable link (for question pages only)
       const sourceTag = document.createElement("p");
       sourceTag.style.fontSize = "0.9em";
       sourceTag.style.color = "#888";
       sourceTag.id = "source-tag";
       sourceTag.innerHTML = `Source: <a href="${current.source.url}" target="_blank">${current.source.label}</a>`;
       sourceContainer.appendChild(sourceTag);
-
+      
+      // Display category information
+      categoryInfoEl.textContent = "Category: " + current.category;
+      
       // Use the pre-shuffled options stored in the question
       current.shuffledOptions.forEach((option) => {
         const button = document.createElement("button");
@@ -146,7 +159,7 @@
           button.classList.add("selected");
         }
         button.addEventListener("click", () => {
-          // Remove highlight from all option buttons
+          // Remove highlight from all option buttons for the current question
           Array.from(optionsEl.children).forEach(btn => btn.classList.remove("selected"));
           button.classList.add("selected");
           selectedAnswers[currentQuestion] = option;
@@ -154,7 +167,7 @@
         optionsEl.appendChild(button);
       });
 
-      // Show or hide navigation buttons
+      // Show or hide navigation buttons based on current question index
       prevBtn.style.display = (currentQuestion > 0) ? "block" : "none";
       nextBtn.textContent = (currentQuestion === filteredQuestions.length - 1) ? "Submit" : "Next";
     }
@@ -173,8 +186,11 @@
       localStorage.setItem("quizAttempts", JSON.stringify(attempts));
       const bestScore = Math.max(...attempts);
       
+      // Hide quiz elements including category and source info
       questionEl.style.display = "none";
       optionsEl.style.display = "none";
+      sourceContainer.style.display = "none";
+      categoryInfoEl.style.display = "none";
       document.getElementById("nav-controls").style.display = "none";
       scoreEl.style.display = "block";
       scoreEl.innerHTML = `You scored ${score} out of ${filteredQuestions.length}<br>Best score of last ${maxAttempts} attempts: ${bestScore}`;
@@ -204,7 +220,7 @@
       }
     });
 
-    // Function to send email with quiz results
+    // Function to send email with quiz results to supervisor
     function sendScoreToSupervisor(currentScore, totalQuestions, bestScore) {
       const supervisorEmail = "supervisor@example.com";
       const subject = "Quiz Results";
@@ -237,6 +253,9 @@
         currentQuestion = 0;
         categorySelectionEl.style.display = "none";
         quizEl.style.display = "block";
+        // Ensure source and category info are visible
+        sourceContainer.style.display = "block";
+        categoryInfoEl.style.display = "block";
         loadQuestion();
       });
     });
