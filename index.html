@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz App with JSON Questions</title>
+  <title>Quiz App with Category Selection</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
       font-size: 1.2em;
       margin-bottom: 10px;
     }
-    .options button {
+    .options button, .category-options button {
       display: block;
       width: 100%;
       padding: 10px;
@@ -32,7 +32,7 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    .options button:hover {
+    .options button:hover, .category-options button:hover {
       background-color: #e0e0e0;
     }
     .score {
@@ -40,40 +40,60 @@
       font-size: 1.5em;
       margin-top: 20px;
     }
+    .category-options {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="quiz-container">
-    <div id="quiz">
+    <!-- Category Selection UI -->
+    <div id="category-selection" class="category-options">
+      <h2>Select a Category:</h2>
+      <button data-category="Billers">Billers</button>
+      <button data-category="Techies">Techies</button>
+      <button data-category="Doctors">Doctors</button>
+      <button data-category="All">All</button>
+    </div>
+    
+    <!-- Quiz Section -->
+    <div id="quiz" style="display:none;">
       <p id="question" class="question"></p>
+      <div id="source-container"></div>
       <div class="options" id="options"></div>
-      <button id="next-btn" style="display:none; margin-top: 10px;">Next Question</button>
       <div id="score" class="score" style="display:none;"></div>
     </div>
   </div>
 
   <script>
-    let questions = [];
+    let allQuestions = [];
+    let filteredQuestions = [];
     let currentQuestion = 0;
     let score = 0;
     const maxAttempts = 3;
     let attempts = JSON.parse(localStorage.getItem("quizAttempts")) || [];
 
+    const categorySelectionEl = document.getElementById("category-selection");
+    const quizEl = document.getElementById("quiz");
     const questionEl = document.getElementById("question");
     const optionsEl = document.getElementById("options");
+    const sourceContainer = document.getElementById("source-container");
     const scoreEl = document.getElementById("score");
 
+    // Fetch questions from JSON file
     async function fetchQuestions() {
       try {
         const response = await fetch("questions.json");
         const data = await response.json();
-        questions = shuffleArray(data);
-        loadQuestion();
+        allQuestions = data;
+        // Show category selection after questions are loaded
+        categorySelectionEl.style.display = "block";
       } catch (error) {
         console.error("Error fetching questions:", error);
       }
     }
 
+    // Function to shuffle an array
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -82,85 +102,87 @@
       return array;
     }
 
+    // Load a question from the filtered questions array
     function loadQuestion() {
-  const current = questions[currentQuestion];
-  questionEl.textContent = current.question;
-  optionsEl.innerHTML = "";
+      // Clear previous source info
+      sourceContainer.innerHTML = "";
+      const current = filteredQuestions[currentQuestion];
+      questionEl.textContent = current.question;
+      optionsEl.innerHTML = "";
 
-  // Create and insert a source tag only once per question
-  const sourceTag = document.createElement("p");
-  sourceTag.style.fontSize = "0.9em";
-  sourceTag.style.color = "#888";
-  sourceTag.innerHTML = `Source: <a href="${current.source.url}" target="_blank">${current.source.label}</a>`;
-  
-  // Remove any existing source tag before appending (if needed)
-  const existingSource = document.getElementById("source-tag");
-  if (existingSource) {
-    existingSource.remove();
-  }
-  sourceTag.id = "source-tag";
-  optionsEl.parentNode.insertBefore(sourceTag, optionsEl);
+      // Display the source as a clickable link
+      const sourceTag = document.createElement("p");
+      sourceTag.style.fontSize = "0.9em";
+      sourceTag.style.color = "#888";
+      sourceTag.id = "source-tag";
+      sourceTag.innerHTML = `Source: <a href="${current.source.url}" target="_blank">${current.source.label}</a>`;
+      sourceContainer.appendChild(sourceTag);
 
-  // Shuffle and display options
-  const shuffledOptions = shuffleArray([...current.options]);
-  shuffledOptions.forEach((option, index) => {
-    const button = document.createElement("button");
-    button.textContent = option;
-    button.addEventListener("click", () => checkAnswer(current.options.indexOf(option)));
-    optionsEl.appendChild(button);
-  });
-}
-
-
-    function checkAnswer(selectedIndex) {
-      const correctIndex = questions[currentQuestion].answer;
-      if (selectedIndex === correctIndex) {
-        score++;
-      }
-      currentQuestion++;
-      if (currentQuestion < questions.length) {
-        loadQuestion();
-      } else {
-        handleCompletion();
-      }
+      // Shuffle the options for the current question
+      const shuffledOptions = shuffleArray([...current.options]);
+      shuffledOptions.forEach((option) => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.addEventListener("click", () => {
+          // Determine the correct answer based on the original options array
+          const correctOption = current.options[current.answer];
+          if (option === correctOption) {
+            score++;
+          }
+          currentQuestion++;
+          if (currentQuestion < filteredQuestions.length) {
+            loadQuestion();
+          } else {
+            handleCompletion();
+          }
+        });
+        optionsEl.appendChild(button);
+      });
     }
 
+    // Handle quiz completion
     function handleCompletion() {
-  // Remove the source element if it exists
-  const sourceTag = document.getElementById("source-tag");
-  if (sourceTag) {
-    sourceTag.remove();
-  }
-  
-  attempts.push(score);
-  if (attempts.length > maxAttempts) attempts.shift(); // Keep only last 3 attempts
+      // Remove source tag if it exists
+      const sourceTag = document.getElementById("source-tag");
+      if (sourceTag) {
+        sourceTag.remove();
+      }
+      attempts.push(score);
+      if (attempts.length > maxAttempts) attempts.shift(); // Keep only last 3 attempts
+      localStorage.setItem("quizAttempts", JSON.stringify(attempts));
+      const bestScore = Math.max(...attempts);
 
-  localStorage.setItem("quizAttempts", JSON.stringify(attempts));
-  const bestScore = Math.max(...attempts);
+      // Hide quiz elements and show the score
+      questionEl.style.display = "none";
+      optionsEl.style.display = "none";
+      scoreEl.style.display = "block";
+      scoreEl.innerHTML = `You scored ${score} out of ${filteredQuestions.length}<br>Best score of last ${maxAttempts} attempts: ${bestScore}`;
+    }
 
-  // Hide the question and options elements
-  questionEl.style.display = "none";
-  optionsEl.style.display = "none";
-  // Display the score without the source information
-  scoreEl.style.display = "block";
-  scoreEl.innerHTML = `You scored ${score} out of ${questions.length}<br>Best score of last ${maxAttempts} attempts: ${bestScore}`;
-
-  sendScoreToSupervisor(score, questions.length, bestScore);
-}
-
-
-    function sendScoreToSupervisor(currentScore, totalQuestions, bestScore) {
-      const supervisorEmail = "supervisor@example.com";
-      const subject = "Quiz Results";
-      const mailBody = `I answered ${currentScore} out of ${totalQuestions} questions correctly.\nBest Score: ${bestScore}\n\nQuiz generated by OHI Team.`;
-      window.open(`mailto:${supervisorEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`);
-}
-
+    // Set up category selection event listeners
+    const categoryButtons = document.querySelectorAll("#category-selection button");
+    categoryButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const selectedCategory = btn.getAttribute("data-category");
+        // Filter questions based on the selected category
+        filteredQuestions = allQuestions.filter(q => q.category === selectedCategory);
+        if (filteredQuestions.length === 0) {
+          alert("No questions available for this category.");
+          return;
+        }
+        // Optionally shuffle the filtered questions
+        filteredQuestions = shuffleArray(filteredQuestions);
+        // Hide category selection and show quiz section
+        categorySelectionEl.style.display = "none";
+        quizEl.style.display = "block";
+        // Initialize quiz variables
+        currentQuestion = 0;
+        score = 0;
+        loadQuestion();
+      });
+    });
 
     fetchQuestions();
   </script>
 </body>
-<footer style="text-align: center; margin-top: 20px;">
-  Quiz generated by OHI Team.
-</footer>
 </html>

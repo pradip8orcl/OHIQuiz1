@@ -1,114 +1,602 @@
 [
   {
-    "question": "What is the primary purpose of Flex Code Definitions in Oracle Health Insurance?",
+    "question": "Which field is commonly used by billers to filter claims by billing status?",
     "options": [
-      "To store domain-specific values that drive configurable behaviors",
-      "To manage user authentication",
-      "To generate dynamic reports",
-      "To secure network communications"
+      "Claim Number",
+      "Payment Status",
+      "Policy Holder",
+      "Provider Name"
     ],
-    "answer": 0,
+    "answer": 1,
+    "category": "Billers",
     "source": {
-      "label": "Code Definitions",
-      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
   },
   {
-    "question": "Which key element is typically included in a Flex Code Definition?",
+    "question": "In the Search Claims page, which option helps billers quickly locate overdue claims?",
     "options": [
-      "Field Usages for determining where the code applies",
-      "Predefined user roles for login",
-      "Automated backup schedules",
-      "Real-time data encryption settings"
+      "Date Filed",
+      "Due Date",
+      "Claim Amount",
+      "Provider Code"
     ],
-    "answer": 0,
+    "answer": 1,
+    "category": "Billers",
     "source": {
-      "label": "Code Definitions",
-      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/code-definitions.html"
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
   },
   {
-    "question": "What is the main function of Field Definitions in the extensibility framework?",
+    "question": "Which filter is essential for billers to narrow down claims by billing cycle?",
     "options": [
-      "To define the properties, constraints, and validation rules for configurable fields",
-      "To create and manage user sessions",
-      "To facilitate data import/export processes",
-      "To monitor system performance metrics"
+      "Submission Date",
+      "Claim Type",
+      "Billing Cycle",
+      "Diagnosis Code"
     ],
-    "answer": 0,
+    "answer": 2,
+    "category": "Billers",
     "source": {
-      "label": "Field Definitions",
-      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/field-definitions.html"
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
   },
   {
-    "question": "How do Field Definitions contribute to system flexibility in Oracle Health Insurance?",
+    "question": "How does the Search Claims page support billers in verifying claim payment status?",
     "options": [
-      "They allow administrators to customize field properties to match specific business requirements",
-      "They enable real-time security alerts",
-      "They automate claim adjudication processes",
-      "They control the application’s network traffic"
+      "By providing a Payment Status filter",
+      "By listing claim numbers",
+      "By showing provider addresses",
+      "By displaying policy details"
     ],
     "answer": 0,
+    "category": "Billers",
     "source": {
-      "label": "Field Definitions",
-      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/field-definitions.html"
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
   },
   {
-    "question": "What is the purpose of a dynamic record definition in Oracle Health Insurance?",
+    "question": "Which column in the Search Claims results is most relevant to billing operations?",
     "options": [
-      "To specify the layout and details of extended records",
-      "To manage user access rights",
-      "To configure network connections",
-      "To generate dynamic reports"
+      "Claim Amount",
+      "Submission Date",
+      "Adjuster Name",
+      "Provider Contact"
     ],
     "answer": 0,
+    "category": "Billers",
     "source": {
-      "label": "Record Definitions",
-      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/record-definitions.html"
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
   },
   {
-    "question": "Which attribute uniquely identifies a dynamic record definition?",
+    "question": "What feature allows billers to sort claims by payment received date?",
     "options": [
-      "Code",
-      "Description",
-      "Table",
-      "Key?"
+      "Sorting options",
+      "Search Filters",
+      "Advanced Sorting",
+      "Custom Views"
     ],
-    "answer": 0,
+    "answer": 2,
+    "category": "Billers",
     "source": {
-      "label": "Record Definitions",
-      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/record-definitions.html"
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
   },
   {
-    "question": "What is the primary purpose of extending tables in Oracle Health Insurance?",
+    "question": "Billers can use which filter to view claims associated with a particular invoice?",
     "options": [
-      "To add market, business line, and customer-specific fields to persist information",
-      "To generate error logs",
-      "To secure user credentials",
-      "To create new database instances"
+      "Invoice Number",
+      "Claim Number",
+      "Policy ID",
+      "Provider ID"
     ],
     "answer": 0,
+    "category": "Billers",
     "source": {
-      "label": "Extending Tables",
-      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/extending-tables.html"
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
   },
   {
-    "question": "What does dynamic field usage enable when extending tables?",
+    "question": "Which search option helps billers identify claims that are pending payment?",
     "options": [
-      "It allows users to add fields that affect the processing of claims, policies, and contracts",
-      "It creates separate backup tables",
-      "It manages system performance metrics",
-      "It encrypts sensitive data"
+      "Payment Status filter",
+      "Claim Amount range",
+      "Date Filed filter",
+      "Provider Location filter"
     ],
     "answer": 0,
+    "category": "Billers",
     "source": {
-      "label": "Extending Tables",
-      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/policies-4.23.2/configuration/extensibility/extending-tables.html"
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What is a key benefit of using the Search Claims page for billers?",
+    "options": [
+      "Real-time claim status updates",
+      "Integration with medical records",
+      "Automated appointment scheduling",
+      "Diagnosis code lookup"
+    ],
+    "answer": 0,
+    "category": "Billers",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "How can billers customize their search criteria on the Search Claims page?",
+    "options": [
+      "Using filter options",
+      "Changing the UI theme",
+      "Editing claim details",
+      "Modifying user roles"
+    ],
+    "answer": 0,
+    "category": "Billers",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which technical component of the Search Claims page allows for dynamic data filtering?",
+    "options": [
+      "REST API",
+      "SOAP Service",
+      "GraphQL Query",
+      "Static HTML"
+    ],
+    "answer": 0,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What protocol does the Search Claims page primarily use for data retrieval?",
+    "options": [
+      "HTTP/HTTPS",
+      "FTP",
+      "SMTP",
+      "Telnet"
+    ],
+    "answer": 0,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which element in the Search Claims page interface is likely built using JavaScript frameworks?",
+    "options": [
+      "Dynamic Filters",
+      "Static Images",
+      "PDF Documents",
+      "Server Logs"
+    ],
+    "answer": 0,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What technology is commonly used to implement real-time updates on the Search Claims page?",
+    "options": [
+      "WebSockets",
+      "AJAX polling",
+      "Long polling",
+      "All of the above"
+    ],
+    "answer": 3,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which data format is typically used for exchanging claim data on the Search Claims page?",
+    "options": [
+      "JSON",
+      "XML",
+      "CSV",
+      "YAML"
+    ],
+    "answer": 0,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What is the role of the API endpoint in the Search Claims functionality?",
+    "options": [
+      "To retrieve claim data dynamically",
+      "To render UI components",
+      "To manage user sessions",
+      "To store static images"
+    ],
+    "answer": 0,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "How can technical teams optimize the performance of the Search Claims page?",
+    "options": [
+      "By implementing caching mechanisms",
+      "By reducing image sizes",
+      "By increasing database indices",
+      "Both A and C"
+    ],
+    "answer": 3,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which front-end framework is likely used to create interactive elements on the Search Claims page?",
+    "options": [
+      "React",
+      "Angular",
+      "Vue",
+      "Any of the above"
+    ],
+    "answer": 3,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What security measure is critical for the Search Claims page data transmission?",
+    "options": [
+      "Using HTTPS",
+      "Using FTP",
+      "Disabling JavaScript",
+      "Using unsecured HTTP"
+    ],
+    "answer": 0,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "How are errors typically handled in the Search Claims page for technical troubleshooting?",
+    "options": [
+      "Error logging and alerts",
+      "Manual refresh",
+      "Automatic logout",
+      "Page redirection"
+    ],
+    "answer": 0,
+    "category": "Techies",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which filter on the Search Claims page helps doctors review claim details related to patient treatments?",
+    "options": [
+      "Diagnosis Code",
+      "Billing Cycle",
+      "Invoice Number",
+      "Provider ID"
+    ],
+    "answer": 0,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "How can doctors use the Search Claims page to verify claim consistency with medical records?",
+    "options": [
+      "By checking treatment dates",
+      "By filtering provider names",
+      "By reviewing claim amounts",
+      "By sorting policy numbers"
+    ],
+    "answer": 0,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What benefit does the Search Claims page provide to doctors regarding patient care?",
+    "options": [
+      "Timely claim status for treatment follow-up",
+      "Automated appointment scheduling",
+      "Direct messaging with patients",
+      "Real-time billing updates"
+    ],
+    "answer": 0,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which column in the Search Claims results is most relevant to doctors?",
+    "options": [
+      "Treatment Date",
+      "Payment Status",
+      "Billing Cycle",
+      "Claim Amount"
+    ],
+    "answer": 0,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What search criteria can doctors use to correlate claims with specific treatments?",
+    "options": [
+      "Procedure Code",
+      "Invoice Number",
+      "Provider Location",
+      "Claim Identifier"
+    ],
+    "answer": 0,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "How does the Search Claims page assist doctors in identifying discrepancies in patient claims?",
+    "options": [
+      "By highlighting inconsistent treatment dates",
+      "By sorting by claim amount",
+      "By filtering by payment status",
+      "By displaying provider contact details"
+    ],
+    "answer": 0,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which filter helps doctors narrow down claims related to a specific treatment period?",
+    "options": [
+      "Date Filed",
+      "Treatment Date",
+      "Submission Date",
+      "Payment Date"
+    ],
+    "answer": 1,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What is an important data point on the Search Claims page for clinical review?",
+    "options": [
+      "Diagnosis Code",
+      "Billing Cycle",
+      "Invoice Number",
+      "Policy ID"
+    ],
+    "answer": 0,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "How can doctors ensure that they are viewing the most relevant claims for patient care?",
+    "options": [
+      "By applying patient-specific filters",
+      "By adjusting the page layout",
+      "By contacting the billing department",
+      "By updating their profile settings"
+    ],
+    "answer": 0,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What feature on the Search Claims page aids doctors in monitoring the status of treatment-related claims?",
+    "options": [
+      "Real-time claim updates",
+      "Manual data refresh",
+      "Automatic logout",
+      "Custom report generation"
+    ],
+    "answer": 0,
+    "category": "Doctors",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What is the primary function of the Search Claims page in Oracle Health Insurance Claims Operations?",
+    "options": [
+      "To search and filter claim records",
+      "To schedule appointments",
+      "To generate payroll reports",
+      "To manage user profiles"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which type of data is primarily displayed on the Search Claims page?",
+    "options": [
+      "Claim details and statuses",
+      "Patient appointment times",
+      "Insurance policy documents",
+      "Employee records"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "How can users refine their search criteria on the Search Claims page?",
+    "options": [
+      "By using multiple filters and sorting options",
+      "By clicking random links",
+      "By editing database tables",
+      "By adjusting system settings"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What benefit does the Search Claims page offer to users?",
+    "options": [
+      "Quick access to claim data",
+      "Automated data entry",
+      "Direct email notifications",
+      "Remote database management"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which action can users perform directly on the Search Claims page?",
+    "options": [
+      "View detailed claim information",
+      "Modify claim data",
+      "Submit new claims",
+      "Cancel policies"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What is a key feature of the Search Claims page interface?",
+    "options": [
+      "Dynamic filtering and sorting",
+      "Static HTML tables",
+      "Limited search options",
+      "Manual data entry"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "How does the Search Claims page improve efficiency for claim operations?",
+    "options": [
+      "By allowing targeted searches",
+      "By limiting access to data",
+      "By requiring manual updates",
+      "By displaying all data without filters"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "Which user role is most likely to benefit from using the Search Claims page?",
+    "options": [
+      "Claim processors, billers, and administrators",
+      "IT support only",
+      "Sales representatives only",
+      "Marketing teams only"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What type of interface element is commonly used on the Search Claims page?",
+    "options": [
+      "Search filters",
+      "Animated graphics",
+      "Video tutorials",
+      "Chatbots"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
+    }
+  },
+  {
+    "question": "What is the main goal of the Search Claims functionality?",
+    "options": [
+      "To streamline the process of locating claim information",
+      "To enhance system security",
+      "To generate marketing leads",
+      "To manage user accounts"
+    ],
+    "answer": 0,
+    "category": "All",
+    "source": {
+      "label": "Search Claims",
+      "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
   }
 ]
