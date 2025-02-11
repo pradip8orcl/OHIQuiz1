@@ -598,7 +598,7 @@
       "label": "Search Claims",
       "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
-  }
+  },
   {
     "question": "Which fields must be entered before saving a reimbursement claim?",
     "options": [
@@ -608,7 +608,8 @@
       "ICD Code, Room Type, Claim Line Details"
     ],
     "answer": 0,
-    "category": "All"
+    "category": "All",
+    "source": { "label": "Claim Validation Rules PDF", "url": "uploaded-file/ClaimValidationRules.pdf" }
   },
   {
     "question": "What condition must be met before moving a reimbursement claim to the doctor?",
@@ -619,7 +620,8 @@
       "Payment receipt validation"
     ],
     "answer": 2,
-    "category": "All"
+    "category": "All",
+    "source": { "label": "Claim Validation Rules PDF", "url": "uploaded-file/ClaimValidationRules.pdf" }
   },
   {
     "question": "Which payment methods are mandatory for claim payment settings?",
@@ -630,7 +632,8 @@
       "Cheque and Wire Transfer"
     ],
     "answer": 0,
-    "category": "All"
+    "category": "All",
+    "source": { "label": "Claim Validation Rules PDF", "url": "uploaded-file/ClaimValidationRules.pdf" }
   },
   {
     "question": "What should happen if no claim line is entered in a reimbursement claim?",
@@ -641,7 +644,8 @@
       "Notification is sent to the provider"
     ],
     "answer": 1,
-    "category": "All"
+    "category": "All",
+    "source": { "label": "Claim Validation Rules PDF", "url": "uploaded-file/ClaimValidationRules.pdf" }
   },
   {
     "question": "What is mandatory for an in-patient claim type?",
@@ -652,7 +656,8 @@
       "Policy Holder's Signature"
     ],
     "answer": 1,
-    "category": "All"
+    "category": "All",
+    "source": { "label": "Claim Validation Rules PDF", "url": "uploaded-file/ClaimValidationRules.pdf" }
   },
   {
     "question": "Which field's absence triggers a pend reason reattachment for actual room type validation?",
@@ -663,7 +668,8 @@
       "Provider Address"
     ],
     "answer": 2,
-    "category": "All"
+    "category": "All",
+    "source": { "label": "Claim Validation Rules PDF", "url": "uploaded-file/ClaimValidationRules.pdf" }
   },
   {
     "question": "What condition should be checked for ICD codes in claim validation?",
@@ -674,7 +680,8 @@
       "Only one ICD code is allowed"
     ],
     "answer": 1,
-    "category": "All"
+    "category": "All",
+    "source": { "label": "Claim Validation Rules PDF", "url": "uploaded-file/ClaimValidationRules.pdf" }
   },
   {
     "question": "What is the purpose of attaching an informational message in claim payment validation?",
@@ -685,6 +692,7 @@
       "To reject the claim without user notification"
     ],
     "answer": 1,
-    "category": "All"
+    "category": "All",
+    "source": { "label": "Claim Validation Rules PDF", "url": "uploaded-file/ClaimValidationRules.pdf" }
   }
 ]
