@@ -599,4 +599,92 @@
       "url": "https://docs.oracle.com/en/industries/insurance/health-insurance-components/claims-4.24.1/operations/claims/claim-pages/search-claims.html"
     }
   }
+  {
+    "question": "Which fields must be entered before saving a reimbursement claim?",
+    "options": [
+      "Member, Provider, Contract Number, Date of Admission, Date of Discharge, Pre-Post Indicator",
+      "Claim Type, Process Type, Admission Reason, Policy Number",
+      "Doctor Name, Admission Type, Payment Method",
+      "ICD Code, Room Type, Claim Line Details"
+    ],
+    "answer": 0,
+    "category": "All"
+  },
+  {
+    "question": "What condition must be met before moving a reimbursement claim to the doctor?",
+    "options": [
+      "Claim amount must be greater than 0",
+      "Pre-authorization approval",
+      "Conditions added to External Intervention Dynamic Logic",
+      "Payment receipt validation"
+    ],
+    "answer": 2,
+    "category": "All"
+  },
+  {
+    "question": "Which payment methods are mandatory for claim payment settings?",
+    "options": [
+      "Cheque, NEFT, UPI",
+      "Credit Card, Wallet Payment",
+      "Cash and Demand Draft",
+      "Cheque and Wire Transfer"
+    ],
+    "answer": 0,
+    "category": "All"
+  },
+  {
+    "question": "What should happen if no claim line is entered in a reimbursement claim?",
+    "options": [
+      "Claim is processed without validation",
+      "Pend reason is reattached",
+      "Payment is automatically rejected",
+      "Notification is sent to the provider"
+    ],
+    "answer": 1,
+    "category": "All"
+  },
+  {
+    "question": "What is mandatory for an in-patient claim type?",
+    "options": [
+      "Diagnosis Code",
+      "Doctor's Name",
+      "Provider's Contact",
+      "Policy Holder's Signature"
+    ],
+    "answer": 1,
+    "category": "All"
+  },
+  {
+    "question": "Which field's absence triggers a pend reason reattachment for actual room type validation?",
+    "options": [
+      "Claim Amount",
+      "Admission Date",
+      "Actual Room Type",
+      "Provider Address"
+    ],
+    "answer": 2,
+    "category": "All"
+  },
+  {
+    "question": "What condition should be checked for ICD codes in claim validation?",
+    "options": [
+      "ICD code must be unique",
+      "Count of claim diagnosis list should be greater than 0",
+      "ICD code must match policy type",
+      "Only one ICD code is allowed"
+    ],
+    "answer": 1,
+    "category": "All"
+  },
+  {
+    "question": "What is the purpose of attaching an informational message in claim payment validation?",
+    "options": [
+      "To provide dynamic payment approvals",
+      "To inform the user about missing payment details",
+      "To auto-complete missing claim fields",
+      "To reject the claim without user notification"
+    ],
+    "answer": 1,
+    "category": "All"
+  }
 ]
